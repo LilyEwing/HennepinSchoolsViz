@@ -1,42 +1,36 @@
 import './App.css';
-import LinePlot from "./LinePlot";
-import * as d3 from 'd3';
-import { useState } from "react";
+import TotalEnrollment from "./TotalEnrollment.jsx";
+import React, {Component} from "react";
 import "./styles.css";
 
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <h1>U.S. Educational Attainment</h1>
+        <h3>
+          Percentage of adults ages 25 and older with a bachelor's degree or
+          higher (2010-2014)
+        </h3>
+  
+        <TotalEnrollment />
+       
+      </div>
+    );
+  }
+}
 
-// function App() {  
+export default App;
+
+
+// export default function App() {
 //   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <h1>Welcome to my app!</h1>
-//         <h2> addkjkjg</h2>
-//       </header>
+//     <div>
+//       <TotalEnrollment />
 //     </div>
 //   );
 // }
 
 
 
-export default function App() {
-  const [data, setData] = useState(() => d3.ticks(-2, 2, 200).map(Math.sin));
 
-  function onMouseMove(event) {
-    const [x, y] = d3.pointer(event);
-    setData(data.slice(-200).concat(Math.atan2(x, y)));
-  }
-
-  return (
-    <div onMouseMove={onMouseMove}>
-      <LinePlot data={data} />
-    </div>
-  );
-}
-
-
-
-
-//export default App;
