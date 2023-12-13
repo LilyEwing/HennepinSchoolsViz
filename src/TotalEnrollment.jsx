@@ -1,16 +1,20 @@
 import * as d3 from "d3";
 import React, { Component } from "react";
+import enrollmentData from './totalEnrollment.csv';
+
+const width = 920;
+const height = 500;
+const data = d3.csv(enrollmentData);
 
 export default class TotalEnrollment extends Component {
     componentDidMount(){
         this.drawChart();
+        const data = d3.csv(enrollmentData);
+        console.log(data);
     }
 
 
     drawChart(){
-
-       
-    const data = d3.csv("totalEnrollment.csv");
     const width = 920;
     const height = 500;
     const marginTop = 20;
@@ -96,7 +100,7 @@ return svg.node();
 
 render(){
     return( 
-    <svg> TotalEnrollment </svg>
+    <svg  width={width} height={height} className = "chart"> TotalEnrollment </svg>
     );
 }
 }
